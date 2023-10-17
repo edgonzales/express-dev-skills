@@ -8,4 +8,7 @@ var skillsCtrl = require('../controllers/skills');
 router.get('/', skillsCtrl.index);
 
 
+// GET show
+router.get('/:id', skillsCtrl.getOne);
+
 module.exports = router;

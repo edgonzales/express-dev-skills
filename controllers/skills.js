@@ -3,11 +3,19 @@
 const Skill = require('../models/skill');
 
 module.exports = {
-    index
+    index,
+    getOne,
 }
 
 function index(req, res) {
-    res.render('skills', { // 'skills' is found in views/skills.ejs | if it was under a folder titled 'skills' then it would be 'skills/skills' 
+    res.render('skills/index', { // 'skills' is found in views/skills.ejs | if it was under a folder titled 'skills' then it would be 'skills/skills' 
         skills: Skill.getAll()
+    });
+}
+
+function getOne(req, res) {
+    console.log(Skill.getOne(req.params.id));
+    res.render('skills/show', {
+        skill: Skill.getOne(req.params.id)
     });
 }
