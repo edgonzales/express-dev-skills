@@ -4,7 +4,7 @@ const SkillModel = require('../models/skill');
 
 module.exports = {
     index,
-    getOne,
+    show,
     new: newSkill,
     create
 }
@@ -17,12 +17,12 @@ function index(req, res) {
 
 /*  Takes in req and res as arguments. The res has a render method that takes in a path, and allows for
 a second argument, an object. In the object, variable skill is given a value derived from the 
-SkillModel.getOne() function. In the getOne() function, the req's params.id has to be passed in.
+SkillModel.show() function. In the show() function, the req's params.id has to be passed in.
 */
-function getOne(req, res) {
-    console.log(SkillModel.getOne(req.params.id));
+function show(req, res) {
+    console.log(SkillModel.show(req.params.id));
     res.render('skills/show', {
-        skill: SkillModel.getOne(req.params.id)
+        skill: SkillModel.show(req.params.id)
     });
 }
 
@@ -31,6 +31,8 @@ function newSkill(req, res) {
 }
 
 function create(req, res) {
+    console.log('Hello world!')
+    console.dir(req + "Hiiiiiii");
     SkillModel.create(req.body)
     res.redirect('/skills');
 }

@@ -7,13 +7,11 @@ var skillsCtrl = require('../controllers/skills');
 // GET /todos
 router.get('/', skillsCtrl.index);
 
-// 
+// GET new
 router.get('/new', skillsCtrl.new)
 
 // GET show
-router.get('/:id', skillsCtrl.getOne);
-
-// 
+router.get('/:id', skillsCtrl.show);
 
 // POST new skill
 router.post('/', skillsCtrl.create);

@@ -7,7 +7,7 @@ const skills = [
 
 module.exports = {
   getAll,
-  getOne,
+  show,
   create,
 };
 
@@ -20,7 +20,7 @@ in the skill item matches with the arg id, then it stops the loop and returns th
 belongs and also it's other key:values found in the same object. In the return, the arg id is converted 
 to an int so that it can be strictly compared to the skill.id int.
 */
-function getOne(id) {
+function show(id) {
   const mySkill = skills.find((skill) => {
     return skill.id === parseInt(id); // converts the id into a string
   });
@@ -28,11 +28,13 @@ function getOne(id) {
   return mySkill;
 }
 
-function create(skill) {
-  // Add the id
-  skill.id = Date.now() % 1000000;
-  // New skills wouldn't be done :)
-  skill.done = false;
+function create(body) {
+  const skill = { 
+    id: skills.length + 1,
+    name: body.skillName,
+    done: false
+  } 
+  //skill.id = Date.now() % 1000000;
+  
   skills.push(skill);
-  return skill
 }
