@@ -6,7 +6,15 @@ module.exports = {
     index,
     show,
     new: newSkill,
-    create
+    create,
+    delete: deleteSkill
+}
+
+function deleteSkill(req, res){
+    console.log('Hello delete!')
+    console.dir(req + "delete skill working????");
+    SkillModel.deleteOne(req.params.id);
+    res.redirect('/skills');
 }
 
 function index(req, res) {

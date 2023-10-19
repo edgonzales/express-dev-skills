@@ -20,6 +20,12 @@
         </a>
         -
         <%= t.done ? 'done' : 'not done' %>
+
+        <form action="/skills/<%= t.id %>?_method=DELETE"
+          class="delete-form" method="POST">
+          <button type="submit">X</button>
+        </form>
+        
       </li>
       <% }); %>
   </ul>
